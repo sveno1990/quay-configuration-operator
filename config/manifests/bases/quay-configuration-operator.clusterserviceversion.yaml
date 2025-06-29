@@ -31,13 +31,13 @@ spec:
   - quay
   - xforce
   links:
-  - name: Quay Configuration Operator
-    url: https://quay-configuration-operator.domain
+  - name: Conclusion Xforce
+    url: https://conclusionxforce.cloud
   maintainers:
   - email: sven.kooiman@conclusionxforce.nl
     name: sven
   maturity: alpha
   minKubeVersion: 1.27.0
   provider:
-    name: quay-configuration-operator
+    name: Conclusion xForce
   version: 0.0.0
