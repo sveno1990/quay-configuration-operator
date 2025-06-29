@@ -16,9 +16,8 @@
 
     - name: Ensure the organization is deleted
       quay_organization:
-        quay_host: "{{ quay_secret_result.resources[0].data.quayHost }}"
-        quay_username: "{{ quay_secret_result.resources[0].data.quayUsername }}"
-        quay_password: "{{ quay_secret_result.resources[0].data.quayPassword }}"
+        quay_org_host: "{{ quay_secret_result.resources[0].data.quayHost }}"
+        quay_org_token: "{{ quay_secret_result.resources[0].data.quayToken }}"
         quay_validate_certs: "{{ quay_secret_result.resources[0].data.quayValidateCerts }}"
         name: "{{ ansible_operator_meta.name }}"
         state: absent
