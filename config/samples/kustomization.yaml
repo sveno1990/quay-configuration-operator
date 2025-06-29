@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- quay_v1alpha1_quayorganization.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

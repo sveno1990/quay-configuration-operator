@@ -1,0 +1,11 @@
+---
+# Use the 'create api' subcommand to add watches to this file.
+- version: v1alpha1
+  group: quay.conclusionxforce.cloud
+  kind: QuayOrganization
+  role: quayorganization
+  reconcilePeriod: 5m
+  finalizer:
+    name: quay.conclusionxforce.cloud
+    playbook: delete-organization.yaml
+# +kubebuilder:scaffold:watch

@@ -1,0 +1,11 @@
+apiVersion: quay.conclusionxforce.cloud/v1alpha1
+kind: QuayOrganization
+metadata:
+  labels:
+    app.kubernetes.io/name: quay-configuration-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: quayorganization-sample
+spec:
+  quaySecret:
+    name: quay
+    namespace: example
