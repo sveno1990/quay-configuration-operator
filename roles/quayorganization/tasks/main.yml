@@ -12,8 +12,8 @@
     vars:
       # Connection parameters
       quay_org_host: "{{ quay_secret_result.resources[0].data.quayHost | b64decode }}"
-      quay_org_token: "{{ quay_secret_result.resources[0].data.quayToken | b64decode}}"
-      quay_validate_certs: "{{ quay_secret_result.data.quayValidateCerts | b64decode}}"
+      quay_org_token: "{{ quay_secret_result.resources[0].data.quayToken | b64decode }}"
+      quay_validate_certs: "{{ quay_secret_result.data.quayValidateCerts | b64decode }}"
       # Organization name and email
       quay_org_name: "{{ ansible_operator_meta.name }}"
       quay_org_prune: "{{ quay_prune | default([]) }}" 

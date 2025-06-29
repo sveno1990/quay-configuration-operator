@@ -13,8 +13,8 @@
 
   - name: Ensure the organization is deleted
     infra.quay_configuration.quay_organization:
-      quay_host: "{{ quay_secret_result.resources[0].data.quayHost }}"
-      quay_token: "{{ quay_secret_result.resources[0].data.quayToken }}"
-      validate_certs: "{{ quay_secret_result.resources[0].data.quayValidateCerts }}"
+      quay_host: "{{ quay_secret_result.resources[0].data.quayHost | b64decode }}"
+      quay_token: "{{ quay_secret_result.resources[0].data.quayToken | b64decode }}"
+      validate_certs: "{{ quay_secret_result.resources[0].data.quayValidateCerts | b64decode }}"
       name: "{{ ansible_operator_meta.name }}"
       state: absent
