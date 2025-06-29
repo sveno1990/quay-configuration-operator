@@ -7,5 +7,4 @@ metadata:
   name: quayorganization-sample
 spec:
   quaySecret:
-    name: quay
-    namespace: example
+    name: quay-secret
