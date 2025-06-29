@@ -7,7 +7,7 @@
   - name: Get the Quay Instance secret
     kubernetes.core.k8s_info:
       kind: Secret
-      namespace: "{{ quay_secret.namespace }}"
+      namespace: "{{ ansible_operator_meta.namespace }}"
       name: "{{ quay_secret.name }}"
     register: quay_secret_result
 
