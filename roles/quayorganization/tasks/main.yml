@@ -1,6 +1,4 @@
 ---
-# tasks file for QuayOrganization
----
 - name: Creating a organization
   hosts: localhost
   become: false
@@ -10,7 +8,7 @@
     - name: Get the Quay Instance secret
       kubernetes.core.k8s_info:
         kind: Secret
-        namespace: "{{ ansible_operator_meta.namespace }}""
+        namespace: "{{ ansible_operator_meta.namespace }}"
         name: "{{ quay_secret.name }}"
       register: quay_secret_result
 
