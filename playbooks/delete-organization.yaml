@@ -1,23 +1,20 @@
 ---
-# tasks file for QuayOrganization
----
 - name: Creating a production organization
   hosts: localhost
   become: false
   gather_facts: false
-
   tasks:
-    - name: Get the Quay Instance secret
-      kubernetes.core.k8s_info:
-        kind: Secret
-        namespace: "{{ quay_secret.namespace }}"
-        name: "{{ quay_secret.name }}"
-      register: quay_secret_result
+  - name: Get the Quay Instance secret
+    kubernetes.core.k8s_info:
+      kind: Secret
+      namespace: "{{ quay_secret.namespace }}"
+      name: "{{ quay_secret.name }}"
+    register: quay_secret_result
 
-    - name: Ensure the organization is deleted
-      quay_organization:
-        quay_org_host: "{{ quay_secret_result.resources[0].data.quayHost }}"
-        quay_org_token: "{{ quay_secret_result.resources[0].data.quayToken }}"
-        quay_validate_certs: "{{ quay_secret_result.resources[0].data.quayValidateCerts }}"
-        name: "{{ ansible_operator_meta.name }}"
-        state: absent
+  - name: Ensure the organization is deleted
+    infra.quay_configuration.quay_organization:
+      quay_org_host: "{{ quay_secret_result.resources[0].data.quayHost }}"
+      quay_org_token: "{{ quay_secret_result.resources[0].data.quayToken }}"
+      quay_validate_certs: "{{ quay_secret_result.resources[0].data.quayValidateCerts }}"
+      name: "{{ ansible_operator_meta.name }}"
+      state: absent
